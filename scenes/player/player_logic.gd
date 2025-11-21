@@ -2,9 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var table: StaticBody2D = $"../Table"
 @onready var area_2d: Area2D = $Area2D
-@onready var label_desc: Label = $"../HUDSearchItems/Label"
 
 
 enum DIRECTION {front, right, back, left}
@@ -41,24 +39,26 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body) -> void:
-	
-	emit_signal("show_item", body.get_instance_id())
-	if not can_get_items:
-		return
-	if item_held == null and body != table:
-		item_held = body.item_name
-		label_desc.text = "Return the item to the table"
-		emit_signal("destroy_item", body.get_instance_id())
-	elif item_held != null and body == table:
-		label_desc.text = ""
-		item_held = null
-		
+	pass
+	#emit_signal("show_item", body.get_instance_id())
+	#if not can_get_items:
+		#return
+	#if item_held == null and body != table:
+		#item_held = body.item_name
+		#label_desc.text = "Return the item to the table"
+		#emit_signal("destroy_item", body.get_instance_id())
+	#elif item_held != null and body == table:
+		#Equipment.add_item(item_held)
+		#label_desc.text = ""
+		#item_held = null
 		
 func _on_area_2d_body_exited(body) -> void:
-	emit_signal("hide_item", body.get_instance_id())
+	pass
+	#emit_signal("hide_item", body.get_instance_id())
 
 func _input(event):
-	if event.is_action_pressed("pick_up"):
-		can_get_items = true
-	elif event.is_action_released("pick_up"):
-		can_get_items = false
+	pass
+	#if event.is_action_pressed("pick_up"):
+		#can_get_items = true
+	#elif event.is_action_released("pick_up"):
+		#can_get_items = false
