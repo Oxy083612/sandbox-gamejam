@@ -10,6 +10,9 @@ var dir = DIRECTION.front
 @export var item_held = null
 var can_get_items = false
 
+@export var inventory: Inventory
+
+
 func _physics_process(_delta: float) -> void:	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if(input_direction[0] > 0 and velocity != Vector2.ZERO):
@@ -62,3 +65,6 @@ func _input(event):
 		#can_get_items = true
 	#elif event.is_action_released("pick_up"):
 		#can_get_items = false
+
+func collect(item):
+	inventory.insert(item)
