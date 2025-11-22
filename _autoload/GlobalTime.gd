@@ -17,7 +17,7 @@ func _ready():
 	else:
 		night_tint.visible = true
 		print(">>> NOC <<<")
-		timer.start(60)
+		timer.start(5)
 
 func _toggle_day_night():
 	is_day = not is_day

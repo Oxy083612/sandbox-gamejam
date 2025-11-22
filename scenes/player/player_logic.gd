@@ -6,17 +6,19 @@ class_name Player
 const SPEED = 150.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area_2d: Area2D = $Area2D
-
+@onready var inventoryUI: Control = $Inventory_UI
 
 enum DIRECTION {front, right, back, left}
 var dir = DIRECTION.front
-@export var item_held = null
 var can_get_items = false
+var is_blocked = false
 
 @export var inventory: Inventory
 
 func _physics_process(_delta: float) -> void:	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if is_blocked:
+		return
 	if(input_direction[0] > 0 and velocity != Vector2.ZERO):
 		sprite.play("walk_right")
 		dir = DIRECTION.right
@@ -70,3 +72,27 @@ func _input(_event):
 
 func collect(item: InvItem):
 	inventory.insert(item)
+
+#	Player health implementation
+var player_current_health: int = 100
+var max_player_health: int = 100
+var min_player_health: int = 0
+
+func add_health(health_amount: int) -> void:
+	if player_current_health + health_amount > max_player_health:
+		player_current_health = max_player_health
+	else:
+		player_current_health += health_amount
+	print("Current player health: ", player_current_health)
+		
+#	Function returns state of player using bool value
+func decrease_health(healthAmount: int) -> bool:
+	var is_player_alive: bool = true
+	if player_current_health - healthAmount <= min_player_health:
+		player_current_health = min_player_health
+		is_player_alive = false
+	else:
+		player_current_health -= healthAmount
+	print("Current player health: ", player_current_health)
+	print("Is player alive: ", is_player_alive)
+	return is_player_alive
