@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxelc604meg8q"]
+[gd_scene load_steps=24 format=3 uid="uid://bxelc604meg8q"]
 
 [ext_resource type="Script" uid="uid://blnrgy65j3kt2" path="res://scenes/plants/plant.gd" id="1_2vmhr"]
 [ext_resource type="Texture2D" uid="uid://cblvtjnai5m3k" path="res://assets/plants/roslina_kable_animation.png" id="2_2vmhr"]
 [ext_resource type="Texture2D" uid="uid://db6u6833of8ue" path="res://assets/plants/roslina_puste.png" id="3_bhq02"]
 [ext_resource type="Texture2D" uid="uid://bbux804rob00s" path="res://assets/plants/roslina_karta_sd_animation.png" id="4_12g6i"]
+[ext_resource type="Texture2D" uid="uid://cqh5hwrum3vw1" path="res://assets/plants/drzewko_usb.png" id="5_60kwi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb4ve"]
 atlas = ExtResource("2_2vmhr")
@@ -44,6 +45,26 @@ region = Rect2(0, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_11wwj"]
 atlas = ExtResource("4_12g6i")
 region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g70g8"]
+atlas = ExtResource("5_60kwi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxa8a"]
+atlas = ExtResource("5_60kwi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtb4r"]
+atlas = ExtResource("5_60kwi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j630d"]
+atlas = ExtResource("5_60kwi")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcma3"]
+atlas = ExtResource("5_60kwi")
+region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qljma"]
 animations = [{
@@ -89,7 +110,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_11wwj")
 }],
 "loop": true,
-"name": &"sd_card",
+"name": &"sd",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g70g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxa8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtb4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j630d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcma3")
+}],
+"loop": true,
+"name": &"usb",
 "speed": 5.0
 }]
 
@@ -103,12 +144,12 @@ size = Vector2(30, 32)
 script = ExtResource("1_2vmhr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 90
+z_index = 1
 texture_filter = 1
 position = Vector2(0, 3.8146973e-06)
 scale = Vector2(1.1437501, 1.2375001)
 sprite_frames = SubResource("SpriteFrames_qljma")
-animation = &"empty"
+animation = &"usb"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -4)
