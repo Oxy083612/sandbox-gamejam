@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvdx0jmkaf3jt"]
+
+[ext_resource type="Texture2D" uid="uid://dxq2ttrx1r6wd" path="res://assets/monetka.png" id="1_hbkq3"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 10.0
+offset_right = -21.0
+offset_bottom = -567.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+text = "Health: 100"
+horizontal_alignment = 2
+vertical_alignment = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_right = -20.0
+offset_bottom = -527.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_direction = 3
+layout_mode = 2
+text = "100"
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+anchors_preset = -1
+offset_left = 708.0
+offset_top = 46.0
+offset_right = 740.0
+offset_bottom = 78.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_hbkq3")
