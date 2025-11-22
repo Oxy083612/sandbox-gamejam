@@ -4,7 +4,7 @@
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HealthContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,14 +17,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="HealthContainer"]
 clip_contents = true
 layout_mode = 2
 text = "Health: 100"
 horizontal_alignment = 2
 vertical_alignment = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="Gold container" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,20 +34,21 @@ offset_bottom = -527.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer2"]
+[node name="Label" type="Label" parent="Gold container"]
 layout_direction = 3
 layout_mode = 2
 text = "100"
 
-[node name="MarginContainer4" type="MarginContainer" parent="."]
+[node name="GoldIconContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
-offset_left = 708.0
-offset_top = 46.0
-offset_right = 740.0
-offset_bottom = 78.0
+offset_left = 856.0
+offset_top = 47.0
+offset_right = 888.0
+offset_bottom = 79.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer4"]
+[node name="GoldIcon" type="TextureRect" parent="GoldIconContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_hbkq3")
+stretch_mode = 2
