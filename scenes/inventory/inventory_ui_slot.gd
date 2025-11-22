@@ -3,7 +3,7 @@ extends Panel
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
 @onready var amount_text: Label = $CenterContainer/Panel/item_display/Label
 var item_name = null
-signal UI_clicked(item)
+signal clicked(item_name: String)
 
 func update(slot: InventorySlot):
 	if slot == null:
@@ -24,5 +24,4 @@ func update(slot: InventorySlot):
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("uauasusausa")
-		emit_signal("UI_clicked", item_name)
+		emit_signal("clicked", item_name)

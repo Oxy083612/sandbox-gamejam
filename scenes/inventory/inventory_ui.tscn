@@ -73,4 +73,3 @@ layout_mode = 2
 layout_mode = 2
 
 [connection signal="clicked" from="." to="NinePatchRect/GridContainer/Inventory_UI_slot" method="_on_inventory_ui_clicked"]
-[connection signal="UI_clicked" from="NinePatchRect/GridContainer/Inventory_UI_slot" to="." method="_on_inventory_ui_slot_ui_clicked"]
