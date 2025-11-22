@@ -11,6 +11,7 @@ script = ExtResource("1_uuc4w")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(29.7906, 25.336256)
+mouse_filter = 2
 color = Color(0.101960786, 0, 0.24705882, 0.34509805)
 
 [node name="Timer" type="Timer" parent="."]

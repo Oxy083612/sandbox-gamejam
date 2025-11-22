@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bpratturiilli"]
+[gd_scene load_steps=31 format=3 uid="uid://bpratturiilli"]
 
 [ext_resource type="Script" uid="uid://dqwnx82vspwsy" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://brtp7eobykmsm" path="res://assets/enemy/slime-Sheet.png" id="2_40wdo"]
@@ -210,6 +210,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3pup"]
+radius = 8.0
+height = 16.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_a3pup")
 
@@ -221,3 +225,17 @@ shape = SubResource("CapsuleShape2D_tjssy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fnnf0")
 animation = &"die"
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(0, 6)
+scale = Vector2(-2.1197224, -1.0600684)
+shape = SubResource("CapsuleShape2D_a3pup")
+
+[node name="damage_intake" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="damage_intake" to="." method="_on_damage_intake_timeout"]
