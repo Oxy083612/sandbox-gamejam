@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://fp8sdjk8ynsv"]
+[gd_scene load_steps=8 format=4 uid="uid://ciu1ekixq41ji"]
 
 [ext_resource type="Texture2D" uid="uid://jpignsm2d5t3" path="res://assets/tilesets/tile.png" id="1_f8con"]
 [ext_resource type="PackedScene" uid="uid://d3yjtxv0lq318" path="res://scenes/player/player.tscn" id="2_lldsj"]
+[ext_resource type="PackedScene" uid="uid://dkwlfunj3smr3" path="res://scenes/portal.tscn" id="3_amoh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lldsj"]
 texture = ExtResource("1_f8con")
@@ -54,3 +55,14 @@ position = Vector2(888, 639)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+
+[node name="Portal" parent="." instance=ExtResource("3_amoh1")]
+position = Vector2(896, 1084)
+
+[node name="AnimatedSprite2D" parent="Portal" index="0"]
+position = Vector2(0, -1)
+
+[node name="DestinationPoint" parent="Portal" index="2" groups=["player"]]
+position = Vector2(425, -109)
+
+[editable path="Portal"]
