@@ -1,11 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3yjtxv0lq318"]
+[gd_scene load_steps=11 format=3 uid="uid://d3yjtxv0lq318"]
 
 [ext_resource type="Script" uid="uid://b14e5axbcsy0e" path="res://scenes/player/player_logic.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://b48jmbsm2664x" path="res://icon.svg" id="2_dovo2"]
+[ext_resource type="Resource" uid="uid://ct4hi2q351a4h" path="res://scenes/inventory/player_inventory.tres" id="2_lvxji"]
+[ext_resource type="PackedScene" uid="uid://ywjl00r8hbfx" path="res://scenes/inventory/inventory_ui.tscn" id="3_p47bc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke2ow"]
-radius = 12.0
-height = 52.0
+radius = 98.0
+height = 196.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8afob"]
 animations = [{
@@ -45,7 +59,16 @@ animations = [{
 "name": &"walk_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dovo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvxji")
+}],
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
@@ -57,12 +80,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(21, 8.5)
+size = Vector2(202.5, 201.5)
 
 [node name="Player" type="CharacterBody2D"]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_8afob")
+inventory = ExtResource("2_lvxji")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -78,11 +102,17 @@ z_index = 90
 texture_filter = 1
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_8afob")
-animation = &"idle_left"
+animation = &"walk_right"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 21.25)
+position = Vector2(-0.25, -0.75)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Inventory_UI" parent="." instance=ExtResource("3_p47bc")]
+offset_left = -94.0
+offset_top = -180.0
+offset_right = 49.0
+offset_bottom = -81.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

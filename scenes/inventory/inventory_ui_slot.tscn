@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ftbxinj7ux2"]
+
+[ext_resource type="Script" uid="uid://d0yfrid7bbn0" path="res://scenes/inventory/inventory_ui_slot.gd" id="1_nd2am"]
+[ext_resource type="Texture2D" uid="uid://b48jmbsm2664x" path="res://icon.svg" id="1_ug2hb"]
+
+[node name="Inventory_UI_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 18.0
+offset_bottom = 18.0
+script = ExtResource("1_nd2am")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, 4.7683716e-07)
+scale = Vector2(0.28125, 0.27343747)
+texture = ExtResource("1_ug2hb")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 35.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/item_display"]
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 17.0
+offset_bottom = 21.0
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 2

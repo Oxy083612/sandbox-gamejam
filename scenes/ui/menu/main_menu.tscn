@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw3m2jk2jb1d7"]
+
+[ext_resource type="Texture2D" uid="uid://p83rw35op4ev" path="res://scenes/ui/menu/backgroung_menu.png" id="1_5ssjm"]
+[ext_resource type="Script" uid="uid://xkuo1jl3gvjg" path="res://scenes/ui/menu/main_menu.gd" id="1_eip10"]
+[ext_resource type="FontFile" uid="uid://d2r5r2loo6gic" path="res://scenes/ui/menu/GrapeSoda.ttf" id="2_eip10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_araup"]
+texture = ExtResource("1_5ssjm")
+modulate_color = Color(0.52708346, 0.52708346, 0.52708346, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3ykt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ssjm"]
+bg_color = Color(0.23211971, 0.23211992, 0.23211977, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eip10"]
+bg_color = Color(0.52312034, 0.5231203, 0.5231203, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ssjm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eip10")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_araup")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.528
+anchor_right = 0.49800003
+anchor_bottom = 0.528
+offset_left = -198.69604
+offset_top = -148.14401
+offset_right = 198.42896
+offset_bottom = 97.10599
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.05414238, 0.05414208, 0.054142147, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_x3ykt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ssjm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eip10")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ssjm")
+text = "Start game 
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.05414238, 0.05414208, 0.054142147, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_x3ykt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ssjm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eip10")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ssjm")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.05414238, 0.05414208, 0.054142147, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_x3ykt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ssjm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eip10")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ssjm")
+text = "Exit
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.0
+offset_top = -276.0
+offset_right = 343.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.008099999, 0.023429995, 0.03, 0.9843137)
+theme_override_constants/shadow_offset_x = 10
+theme_override_fonts/font = ExtResource("2_eip10")
+theme_override_font_sizes/font_size = 100
+text = "Cyberpank game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
