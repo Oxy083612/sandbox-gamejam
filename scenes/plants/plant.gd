@@ -1,91 +1,45 @@
+class_name Plant  # <--- BEST PRACTICE: Gives your node a strict type
 extends Node2D
-
-class_name Plant
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_2d = $Area2D
 @onready var label = $Label
 
-const MAX_STAGE = 4
-var current_stage: int = -1
+var current_stage: int = 0
 var is_harvestable: bool = false
-var is_player_in_area: bool = false
-var playerBody: Player = null 
 
 func _ready():
+	print("uaua")
 	GlobalTime.connect("day_night_changed", _update_growth)
 	label.visible = false
 	sprite.play("empty")
 	sprite.pause()
-				
-func _process(_delta):
-	if is_player_in_area:
-		label_logic()
-
-func _update_growth():
-	print("CURRENT STAGE: " + str(current_stage))
-	
-	
-	if current_stage < MAX_STAGE and current_stage >= 0:
-		current_stage += 1
 		
+func _update_growth():
+	if(sprite.animation == "empty"):
+		pass
+	if current_stage < 3:
+		current_stage += 1
 	sprite.frame = current_stage
 	sprite.pause()
+	if current_stage == 3:
+		is_harvestable = true
+		pass
 		
 func plant(name: String):
 	sprite.play(name)
-	sprite.stop()
+	sprite.frame = 1
+	sprite.pause()
+
+func harvest():
+	sprite.play("empty")
+	sprite.pause()
 	current_stage = 0
-	sprite.frame = current_stage
-
-
-func harvest() -> InvItem:
-	var item: InvItem = null
-	match sprite.animation:
-		"cables":
-			item = load("res://scenes/items/cables.tres")
-		"usb":
-			item = load("res://scenes/items/usb.tres")
-		"sd":
-			item = load("res://scenes/items/sd.tres")
-			
-	sprite.animation = "empty"
-	sprite.frame = 0
-	current_stage = -1
-	label.visible = false
-	return item
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.set_nearby_plant(self)
-		label_logic()
+		label.visible = true
 
-func _on_area_2d_body_exited(body: Node) -> void:
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
-		body.clear_nearby_plant(self)
 		label.visible = false
-
-func label_logic():
-	if can_plant():
-		label.visible = true
-		label.text = "PRESS `E` TO PLANT"
-		return
-	elif can_harvest():
-		label.visible = true
-		label.text = "PRESS `E` TO HARVEST"
-		return
-	else:
-		label.visible = false
-
-func plant_seed(name: String):
-	sprite.animation = name
-	sprite.stop()
-	current_stage = 0
-	sprite.frame = 0
-	label_logic()
-
-func can_plant() -> bool:
-	return current_stage == -1
-
-func can_harvest() -> bool:
-	return current_stage >= MAX_STAGE

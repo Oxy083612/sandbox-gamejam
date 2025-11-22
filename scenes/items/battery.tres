@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://chmvgllu83w1w"]
+
+[ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/item/invItem.gd" id="1_cghc8"]
+[ext_resource type="Texture2D" uid="uid://b48jmbsm2664x" path="res://icon.svg" id="2_6qmm6"]
+
+[resource]
+script = ExtResource("1_cghc8")
+name = "battery"
+texture = ExtResource("2_6qmm6")
+metadata/_custom_type_script = "uid://ce20qijrxy470"

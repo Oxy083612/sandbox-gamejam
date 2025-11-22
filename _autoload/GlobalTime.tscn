@@ -14,7 +14,7 @@ scale = Vector2(29.7906, 25.336256)
 color = Color(0.101960786, 0, 0.24705882, 0.34509805)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
