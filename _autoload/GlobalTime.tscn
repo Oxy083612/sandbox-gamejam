@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://xcfvxqu2emhi"]
+
+[ext_resource type="Script" uid="uid://bc8f6w3oyfumx" path="res://_autoload/GlobalTime.gd" id="1_uuc4w"]
+
+[node name="GlobalTime" type="Node"]
+script = ExtResource("1_uuc4w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.7906, 25.336256)
+color = Color(0.101960786, 0, 0.24705882, 0.34509805)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

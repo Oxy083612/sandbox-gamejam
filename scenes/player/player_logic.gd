@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+class_name Player
+
+
 const SPEED = 150.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area_2d: Area2D = $Area2D
@@ -40,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_2d_body_entered(body) -> void:
+func _on_area_2d_body_entered(_body) -> void:
 	pass
 	#emit_signal("show_item", body.get_instance_id())
 	#if not can_get_items:
@@ -54,18 +57,18 @@ func _on_area_2d_body_entered(body) -> void:
 		#label_desc.text = ""
 		#item_held = null
 		
-func _on_area_2d_body_exited(body) -> void:
+func _on_area_2d_body_exited(_body) -> void:
 	pass
 	#emit_signal("hide_item", body.get_instance_id())
 
-func _input(event):
+func _input(_event):
 	pass
 	#if event.is_action_pressed("pick_up"):
 		#can_get_items = true
 	#elif event.is_action_released("pick_up"):
 		#can_get_items = false
 
-func collect(item):
+func collect(item: InvItem):
 	inventory.insert(item)
 
 #	Player health implementation
