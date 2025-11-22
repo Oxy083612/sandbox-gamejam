@@ -12,7 +12,6 @@ var can_get_items = false
 
 @export var inventory: Inventory
 
-
 func _physics_process(_delta: float) -> void:	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if(input_direction[0] > 0 and velocity != Vector2.ZERO):
@@ -22,10 +21,10 @@ func _physics_process(_delta: float) -> void:
 		sprite.play("walk_left")
 		dir = DIRECTION.left
 	if(input_direction[1] > 0 and velocity != Vector2.ZERO):
-		sprite.play("walk_up")
+		sprite.play("walk_down")
 		dir = DIRECTION.front
 	if(input_direction[1] < 0 and velocity != Vector2.ZERO):
-		sprite.play("walk_down")
+		sprite.play("walk_up")
 		dir = DIRECTION.back
 	if velocity == Vector2.ZERO:
 		match dir:
@@ -34,9 +33,9 @@ func _physics_process(_delta: float) -> void:
 			DIRECTION.left:
 				sprite.play("idle_left")
 			DIRECTION.front:
-				sprite.play("idle_up")
-			DIRECTION.back:
 				sprite.play("idle_down")
+			DIRECTION.back:
+				sprite.play("idle_up")
 	velocity = input_direction * SPEED
 	move_and_slide()
 
