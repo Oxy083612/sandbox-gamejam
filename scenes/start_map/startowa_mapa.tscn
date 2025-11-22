@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://nm13it4x7y4f"]
+[gd_scene load_steps=11 format=4 uid="uid://nm13it4x7y4f"]
 
 [ext_resource type="Texture2D" uid="uid://jpignsm2d5t3" path="res://assets/tilesets/tile.png" id="1_gj2po"]
 [ext_resource type="PackedScene" uid="uid://d3yjtxv0lq318" path="res://scenes/player/player.tscn" id="2_ioq07"]
 [ext_resource type="PackedScene" uid="uid://bpratturiilli" path="res://scenes/enemy/enemy.tscn" id="3_g10uf"]
-[ext_resource type="PackedScene" uid="uid://bxelc604meg8q" path="res://plants/plant.tscn" id="4_q8ltl"]
+[ext_resource type="PackedScene" uid="uid://bxelc604meg8q" path="res://scenes/plants/plant.tscn" id="4_q8ltl"]
+[ext_resource type="PackedScene" uid="uid://djfq4llaakx3l" path="res://scenes/item/item.tscn" id="5_f3sbe"]
+[ext_resource type="Resource" uid="uid://dwdejby24hoja" path="res://scenes/items/seed_pendrive.tres" id="6_reuv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioq07"]
 texture = ExtResource("1_gj2po")
@@ -52,6 +54,18 @@ tile_set = SubResource("TileSet_hne8t")
 
 [node name="decoration" type="TileMapLayer" parent="startowa_mapa"]
 
+[node name="Plant" parent="." instance=ExtResource("4_q8ltl")]
+position = Vector2(576, 225)
+scale = Vector2(2, 2)
+
+[node name="Plant2" parent="." instance=ExtResource("4_q8ltl")]
+position = Vector2(640, 225)
+scale = Vector2(2, 2)
+
+[node name="Item" parent="." instance=ExtResource("5_f3sbe")]
+position = Vector2(84, 87)
+item = ExtResource("6_reuv0")
+
 [node name="Player" parent="." instance=ExtResource("2_ioq07")]
 position = Vector2(292, 305)
 
@@ -59,6 +73,3 @@ position = Vector2(292, 305)
 position = Vector2(630, 631)
 scale = Vector2(2, 2)
 target = NodePath("../Player")
-
-[node name="Plant (Node2D)" parent="." instance=ExtResource("4_q8ltl")]
-position = Vector2(604, 94)

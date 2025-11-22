@@ -2,27 +2,31 @@ extends Node
 
 # 1. DEFINE SIGNAL (The Notification)
 # This effectively replaces the "observers" list.
-signal day_night_changed(is_day: bool)
+signal day_night_changed()
 
-# Configuration
-var day_duration_seconds: float = 10.0 
-var current_time: float = 0.0
-var is_day: bool = true
+@onready var night_tint: ColorRect = $CanvasLayer/ColorRect
+@onready var timer: Timer = $Timer
+@export var is_day: bool = true
 
-func _process(delta):
-	current_time += delta
-	if current_time >= day_duration_seconds:
-		current_time = 0.0
-		_toggle_day_night()
+func _ready():
+	night_tint.visible = false
+	timer.autostart
 
 func _toggle_day_night():
 	is_day = not is_day
 	
-	# 2. BROADCAST
-	# Send the message to everyone listening instantly
-	day_night_changed.emit(is_day)
+	day_night_changed.emit()
+	
 	
 	if is_day:
-		print(">>> SUNRISE <<<")
+		night_tint.visible = false
+		print(">>> DZIEN <<<")
+		timer.start(420)
 	else:
-		print(">>> SUNSET <<<")
+		night_tint.visible = true
+		print(">>> NOC <<<")
+		timer.start(60)
+
+
+func _on_timer_timeout() -> void:
+	_toggle_day_night()
