@@ -1,7 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3yjtxv0lq318"]
+[gd_scene load_steps=26 format=3 uid="uid://d3yjtxv0lq318"]
 
-[ext_resource type="Script" uid="uid://b14e5axbcsy0e" path="res://scenes/player/player_logic.gd" id="1_8afob"]
-[ext_resource type="Resource" uid="uid://ct4hi2q351a4h" path="res://scenes/inventory/player_inventory.tres" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://u8v1jmde7ctt" path="res://assets/player/player_animation.png" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://ywjl00r8hbfx" path="res://scenes/inventory/inventory_ui.tscn" id="3_p47bc"]
 
@@ -198,8 +196,6 @@ size = Vector2(38, 14.5)
 [node name="Player" type="CharacterBody2D"]
 z_as_relative = false
 y_sort_enabled = true
-script = ExtResource("1_8afob")
-inventory = ExtResource("2_lvxji")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
