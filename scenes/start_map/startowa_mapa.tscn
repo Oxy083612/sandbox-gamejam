@@ -57,6 +57,12 @@ tile_set = SubResource("TileSet_hne8t")
 
 [node name="decoration" type="TileMapLayer" parent="startowa_mapa"]
 
+[node name="Player" parent="startowa_mapa" instance=ExtResource("2_ioq07")]
+position = Vector2(189, 330)
+
+[node name="Camera2D" type="Camera2D" parent="startowa_mapa/Player"]
+position_smoothing_enabled = true
+
 [node name="Plant3" parent="." instance=ExtResource("4_q8ltl")]
 position = Vector2(576, 160)
 scale = Vector2(2, 2)
