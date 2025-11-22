@@ -43,10 +43,10 @@ layout_mode = 2
 text = "100"
 
 [node name="GoldIconContainer" type="MarginContainer" parent="."]
-offset_left = 856.0
-offset_top = 47.0
-offset_right = 888.0
-offset_bottom = 79.0
+offset_left = 836.0
+offset_top = 34.0
+offset_right = 868.0
+offset_bottom = 66.0
 
 [node name="GoldIcon" type="TextureRect" parent="GoldIconContainer"]
 layout_mode = 2
@@ -56,10 +56,10 @@ texture = ExtResource("1_hbkq3")
 stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 822.0
-offset_top = 8.0
-offset_right = 870.0
-offset_bottom = 52.0
+offset_left = 802.0
+offset_top = -5.0
+offset_right = 850.0
+offset_bottom = 39.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2

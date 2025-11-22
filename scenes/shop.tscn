@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://denfsho0lhwb3"]
+[gd_scene load_steps=11 format=3 uid="uid://denfsho0lhwb3"]
 
 [ext_resource type="Script" uid="uid://4jc8lky1mrh2" path="res://scenes/shop.gd" id="1_1l46r"]
 [ext_resource type="Texture2D" uid="uid://p15t38vn7740" path="res://assets/shop/shop.png" id="1_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://b08gdqtndgxay" path="res://assets/shop/npc.png" id="2_1l46r"]
+[ext_resource type="PackedScene" uid="uid://cv5ew33d7pvhc" path="res://scenes/shop_menu.tscn" id="4_032fp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_032fp"]
 atlas = ExtResource("1_xfvoa")
@@ -63,4 +64,8 @@ shape = SubResource("RectangleShape2D_032fp")
 position = Vector2(11, 48)
 shape = SubResource("CircleShape2D_2fc2m")
 
+[node name="shop_menu" parent="." instance=ExtResource("4_032fp")]
+position = Vector2(-47, -149)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

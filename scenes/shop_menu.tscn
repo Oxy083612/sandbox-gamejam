@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv5ew33d7pvhc"]
+[gd_scene load_steps=17 format=3 uid="uid://cv5ew33d7pvhc"]
 
 [ext_resource type="Script" uid="uid://b41wpj34614un" path="res://scenes/shop_menu.gd" id="1_76m3e"]
 [ext_resource type="Texture2D" uid="uid://c7rduhgk4woh6" path="res://assets/shop/arrow.png" id="2_cql4u"]
 [ext_resource type="Texture2D" uid="uid://dsu2ijbg18kf" path="res://assets/items/ikonka_kable.png" id="3_xw4en"]
 [ext_resource type="Texture2D" uid="uid://dxq2ttrx1r6wd" path="res://assets/monetka.png" id="4_bq4yc"]
+[ext_resource type="Texture2D" uid="uid://whpc6jy7jkyv" path="res://assets/items/ikonka_karta_sd.png" id="4_xw4en"]
+[ext_resource type="Texture2D" uid="uid://bupjcp6kq724i" path="res://assets/items/ikonka_usb.png" id="5_bq4yc"]
+[ext_resource type="Texture2D" uid="uid://cportoh512tuq" path="res://scenes/player/sword.png" id="6_bq4yc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lngpu"]
 atlas = ExtResource("2_cql4u")
@@ -53,7 +56,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_rg5ak")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Cable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xw4en")
+}],
+"loop": true,
+"name": &"Card",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bq4yc")
+}],
+"loop": true,
+"name": &"Usb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bq4yc")
+}],
+"loop": true,
+"name": &"sword",
 "speed": 5.0
 }]
 
@@ -108,6 +135,7 @@ sprite_frames = SubResource("SpriteFrames_5gjx7")
 [node name="icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(21, 19)
 sprite_frames = SubResource("SpriteFrames_eqtrt")
+animation = &"sword"
 
 [node name="coin" type="AnimatedSprite2D" parent="."]
 position = Vector2(98, 20)
@@ -120,19 +148,20 @@ offset_right = 92.0
 offset_bottom = 49.0
 text = "100"
 
+[node name="Buybuttoncolor" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 48.0
+offset_top = 38.0
+offset_right = 122.0
+offset_bottom = 54.0
+color = Color(0.8887445, 0.069242366, 0.0748002, 1)
+
 [node name="Buybutton" type="Button" parent="."]
 modulate = Color(1, 0.29803923, 0.8, 1)
 offset_left = 48.0
 offset_top = 38.0
 offset_right = 122.0
 offset_bottom = 53.0
-
-[node name="Buybutton2" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 48.0
-offset_top = 38.0
-offset_right = 122.0
-offset_bottom = 54.0
 
 [connection signal="pressed" from="Button_right" to="." method="_on_button_right_pressed"]
 [connection signal="pressed" from="Buton_left" to="." method="_on_buton_left_pressed"]

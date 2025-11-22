@@ -17,6 +17,7 @@ var enemy_in_attack_range = false
 var damage_intake_cooldown = true
 var player_alive = true
 
+
 var attack_in_progress = false
 
 var coins: int = 0

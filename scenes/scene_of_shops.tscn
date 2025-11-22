@@ -52,7 +52,7 @@ tile_set = SubResource("TileSet_cevwi")
 [node name="decoration" type="TileMapLayer" parent="shop"]
 
 [node name="Player" parent="shop" instance=ExtResource("2_a1yx0")]
-position = Vector2(733, 1224)
+position = Vector2(741, 1205)
 
 [node name="Camera2D" type="Camera2D" parent="shop/Player"]
 position_smoothing_enabled = true

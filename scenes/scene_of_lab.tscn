@@ -51,7 +51,7 @@ tile_set = SubResource("TileSet_5ikgp")
 [node name="decoration" type="TileMapLayer" parent="lab"]
 
 [node name="Player" parent="." instance=ExtResource("2_lldsj")]
-position = Vector2(888, 639)
+position = Vector2(715, 476)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
