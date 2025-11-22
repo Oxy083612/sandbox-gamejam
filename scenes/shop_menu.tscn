@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cv5ew33d7pvhc"]
+[gd_scene load_steps=0 format=3 uid="uid://cv5ew33d7pvhc"]
 
 [node name="shop_menu" type="StaticBody2D"]
 

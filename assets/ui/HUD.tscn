@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvdx0jmkaf3jt"]
+[gd_scene load_steps=5 format=3 uid="uid://cvdx0jmkaf3jt"]
 
 [ext_resource type="Texture2D" uid="uid://dxq2ttrx1r6wd" path="res://assets/monetka.png" id="1_hbkq3"]
 [ext_resource type="Texture2D" uid="uid://b5ssmeqxmwbd1" path="res://assets/heart.png" id="2_1f6ux"]
+[ext_resource type="Texture2D" uid="uid://rha6db7mnom8" path="res://assets/ui/close_button.png" id="3_ehl52"]
+[ext_resource type="Script" uid="uid://tlufhpeclhfm" path="res://assets/ui/button.gd" id="4_vluym"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -64,3 +66,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("2_1f6ux")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 58.0
+offset_bottom = 42.0
+icon = ExtResource("3_ehl52")
+flat = true
+expand_icon = true
+script = ExtResource("4_vluym")
+
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
