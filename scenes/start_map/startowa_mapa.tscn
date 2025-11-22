@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bxelc604meg8q" path="res://scenes/plants/plant.tscn" id="4_q8ltl"]
 [ext_resource type="Resource" uid="uid://dp6tjebkyr6ml" path="res://scenes/items/seed_cables.tres" id="4_reuv0"]
 [ext_resource type="PackedScene" uid="uid://djfq4llaakx3l" path="res://scenes/item/item.tscn" id="5_f3sbe"]
-[ext_resource type="Resource" uid="uid://dh4ve8vtgwy7b" path="res://scenes/items/seed_sd.tres" id="5_oe5uy"]
+[ext_resource type="Resource" path="res://scenes/items/seed_sd.tres" id="5_oe5uy"]
 [ext_resource type="Resource" uid="uid://dwdejby24hoja" path="res://scenes/items/seed_pendrive.tres" id="6_reuv0"]
 [ext_resource type="PackedScene" uid="uid://cvdx0jmkaf3jt" path="res://assets/ui/HUD.tscn" id="8_0mi2f"]
 [ext_resource type="PackedScene" uid="uid://bpratturiilli" path="res://scenes/enemy/enemy.tscn" id="8_gbuw6"]
