@@ -7,10 +7,11 @@ extends Control
 var is_open = false
 
 func _ready():
+	inventory.update.connect(update_slots)
 	update_slots()
 	close()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("open_inventory"):
 		print("yo")
 		if is_open:

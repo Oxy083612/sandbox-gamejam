@@ -193,7 +193,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(51, 105)
+size = Vector2(38, 14.5)
 
 [node name="Player" type="CharacterBody2D"]
 z_as_relative = false
@@ -218,14 +218,14 @@ sprite_frames = SubResource("SpriteFrames_8afob")
 animation = &"idle_up"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 27.5)
+position = Vector2(0, 21.25)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Inventory_UI" parent="." instance=ExtResource("3_p47bc")]
-offset_left = -94.0
-offset_top = -180.0
-offset_right = 49.0
-offset_bottom = -81.0
+offset_left = -79.0
+offset_top = -169.0
+offset_right = 64.0
+offset_bottom = -70.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

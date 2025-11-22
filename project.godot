@@ -11,13 +11,25 @@ config_version=5
 [application]
 
 config/name="Test"
-run/main_scene="uid://d154bfchpa7yo"
+run/main_scene="uid://bw3m2jk2jb1d7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalTime="*res://_autoload/GlobalTime.gd"
+GlobalTime="*res://_autoload/GlobalTime.tscn"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -55,3 +67,4 @@ interaction={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
