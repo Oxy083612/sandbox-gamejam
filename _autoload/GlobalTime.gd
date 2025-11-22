@@ -1,7 +1,5 @@
 extends Node
 
-# 1. DEFINE SIGNAL (The Notification)
-# This effectively replaces the "observers" list.
 signal day_night_changed()
 
 @onready var night_tint: ColorRect = $CanvasLayer/ColorRect
@@ -21,11 +19,11 @@ func _toggle_day_night():
 	if is_day:
 		night_tint.visible = false
 		print(">>> DZIEN <<<")
-		timer.start(420)
+		timer.start(10)
 	else:
 		night_tint.visible = true
 		print(">>> NOC <<<")
-		timer.start(60)
+		timer.start(5)
 
 
 func _on_timer_timeout() -> void:

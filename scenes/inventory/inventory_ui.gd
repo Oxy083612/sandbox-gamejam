@@ -6,7 +6,11 @@ extends Control
 
 var is_open = false
 
+signal clicked(item)
+
+
 func _ready():
+	
 	inventory.update.connect(update_slots)
 	update_slots()
 	close()
@@ -30,3 +34,7 @@ func close():
 func update_slots():
 	for i in range(min(inventory.slots.size(), slots.size())):
 		slots[i].update(inventory.slots[i])
+
+
+func _on_inventory_ui_slot_ui_clicked(item: Variant) -> void:
+	clicked.emit(item)
