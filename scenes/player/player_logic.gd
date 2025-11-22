@@ -142,7 +142,3 @@ func decrease_health(healthAmount: int) -> bool:
 	print("Current player health: ", player_current_health)
 	print("Is player alive: ", is_player_alive)
 	return is_player_alive
-func player_sell_method():
-	pass
-func player_shop_method():
-	pass
