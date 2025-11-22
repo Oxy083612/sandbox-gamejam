@@ -71,3 +71,5 @@ layout_mode = 2
 
 [node name="Inventory_UI_slot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_8ojme")]
 layout_mode = 2
+
+[connection signal="clicked" from="." to="NinePatchRect/GridContainer/Inventory_UI_slot" method="_on_inventory_ui_clicked"]

@@ -6,14 +6,20 @@ extends Control
 
 var is_open = false
 
+signal clicked(item)
+
+
 func _ready():
+	
+	for slot in slots:
+		slot.connect("clicked", _on_slot_clicked)
+	
 	inventory.update.connect(update_slots)
 	update_slots()
 	close()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("open_inventory"):
-		print("yo")
 		if is_open:
 			close()
 		else:
@@ -30,3 +36,8 @@ func close():
 func update_slots():
 	for i in range(min(inventory.slots.size(), slots.size())):
 		slots[i].update(inventory.slots[i])
+
+func _on_slot_clicked(item_name):
+	if item_name:
+		emit_signal("clicked", item_name)
+	return

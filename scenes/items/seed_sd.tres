@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dh4ve8vtgwy7b"]
 
 [ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/item/invItem.gd" id="1_nbdur"]
-[ext_resource type="Texture2D" uid="uid://dcppgl67xh1e" path="res://assets/items/nasionko_karta_sd.png" id="2_3pi2s"]
+[ext_resource type="Texture2D" uid="uid://v2ojidp6kxki" path="res://assets/items/nasionko_usb.png" id="2_3pi2s"]
 
 [resource]
 script = ExtResource("1_nbdur")
-name = "sd"
+name = "seed_usb"
 texture = ExtResource("2_3pi2s")
 metadata/_custom_type_script = "uid://ce20qijrxy470"
