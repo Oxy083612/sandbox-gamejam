@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03ad8mufnmpx"]
+
+[ext_resource type="Script" path="res://assets/ui/margin_container_2.gd" id="1_o1m3e"]
+[ext_resource type="Texture2D" path="res://assets/ui/close_button.png" id="2_s125b"]
+
+[node name="MarginContainer2" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_o1m3e")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+button_mask = 0
+icon = ExtResource("2_s125b")
