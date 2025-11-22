@@ -203,3 +203,42 @@ func _on_attack_cooldown_timeout() -> void:
 	Combat.player_current_attack = false
 	attack_in_progress = false
 	
+func _start_building_flow(plant: Plant):
+	if inventoryUI.is_open:
+		return
+	inventoryUI.open()
+	is_blocked = true
+
+	print("PLAYER START BUILDING")  # test
+	plant.build()
+
+	if inventoryUI.is_connected("clicked", _on_inventory_selected_for_build):
+		inventoryUI.disconnect("clicked", _on_inventory_selected_for_build)
+	inventoryUI.connect("clicked", _on_inventory_selected_for_build)
+
+	nearby_plant = plant
+
+
+func _on_inventory_selected_for_build(item_name: String):
+	if nearby_plant == null:
+		return
+
+	# tylko budowanie — tylko "pot"
+	if item_name == "pot":
+		_start_building_flow(nearby_plant)
+		if nearby_plant.has_method("build"):
+			nearby_plant.build()
+
+		# usuń pot z ekwipunku
+		inventory.remove_by_name(item_name)
+
+		# zamknij UI i odblokuj gracza
+		inventoryUI.close()
+		is_blocked = false
+
+		# odłącz sygnał
+		if inventoryUI.is_connected("clicked", _on_inventory_selected_for_build):
+			inventoryUI.disconnect("clicked", _on_inventory_selected_for_build)
+		return
+
+	print("Ten przedmiot nie może być użyty do budowy.")
