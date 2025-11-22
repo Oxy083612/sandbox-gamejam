@@ -6,12 +6,10 @@ class_name Plant
 @onready var area_2d = $Area2D
 @onready var label = $Label
 
-const TILE_SIZE: Vector2 = Vector2(32, 32)
 const MAX_STAGE = 4
 var current_stage: int = -1
 var is_player_in_area: bool = false
 var playerBody: Player = null 
-var is_a_building: bool = false   # <-- budowanie ON/OFF
 
 func _ready():
 	GlobalTime.connect("day_night_changed", _update_growth)
@@ -20,13 +18,6 @@ func _ready():
 	sprite.pause()
 
 func _process(_delta):
-	print("PROCESS WORKS, building =", is_a_building)
-	if is_a_building:
-		var mouse_position: Vector2 = get_global_mouse_position()
-		mouse_position -= TILE_SIZE / 2
-		global_position = mouse_position.snapped(TILE_SIZE) + TILE_SIZE / 2.0
-		_check_build_finish()
-
 	# obsługa labela
 	if is_player_in_area:
 		label_logic()
@@ -103,21 +94,3 @@ func can_plant() -> bool:
 
 func can_harvest() -> bool:
 	return current_stage >= MAX_STAGE
-
-
-# -----------------------------
-#     SYSTEM BUDOWANIA
-# -----------------------------
-
-func build():
-	# wchodzi w tryb budowania
-	is_a_building = true
-	label.visible = false
-	print("BUILD MODE ENABLED")
-
-
-func _check_build_finish():
-	# zakończenie budowy kliknięciem LPM
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		is_a_building = false
-		print("BUILD PLACED")
