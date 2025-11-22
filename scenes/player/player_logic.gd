@@ -67,3 +67,27 @@ func _input(event):
 
 func collect(item):
 	inventory.insert(item)
+
+#	Player health implementation
+var player_current_health: int = 100
+var max_player_health: int = 100
+var min_player_health: int = 0
+
+func add_health(health_amount: int) -> void:
+	if player_current_health + health_amount > max_player_health:
+		player_current_health = max_player_health
+	else:
+		player_current_health += health_amount
+	print("Current player health: ", player_current_health)
+		
+#	Function returns state of player using bool value
+func decrease_health(healthAmount: int) -> bool:
+	var is_player_alive: bool = true
+	if player_current_health - healthAmount <= min_player_health:
+		player_current_health = min_player_health
+		is_player_alive = false
+	else:
+		player_current_health -= healthAmount
+	print("Current player health: ", player_current_health)
+	print("Is player alive: ", is_player_alive)
+	return is_player_alive
