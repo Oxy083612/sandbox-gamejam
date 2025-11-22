@@ -15,12 +15,12 @@ func _toggle_day_night():
 	if is_day:
 		night_tint.visible = false
 		print(">>> DZIEN <<<")
-		timer.start(10)
+		timer.start(420)
 	else:
 		day_night_changed.emit()
 		night_tint.visible = true
 		print(">>> NOC <<<")
-		timer.start(5)
+		timer.start(60)
 
 func _on_timer_timeout() -> void:
 	_toggle_day_night()
