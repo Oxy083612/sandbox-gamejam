@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://nm13it4x7y4f"]
+[gd_scene load_steps=14 format=4 uid="uid://nm13it4x7y4f"]
 
 [ext_resource type="Texture2D" uid="uid://jpignsm2d5t3" path="res://assets/tilesets/tile.png" id="1_gj2po"]
 [ext_resource type="PackedScene" uid="uid://d3yjtxv0lq318" path="res://scenes/player/player.tscn" id="2_ioq07"]
 [ext_resource type="PackedScene" uid="uid://bxelc604meg8q" path="res://scenes/plants/plant.tscn" id="4_q8ltl"]
 [ext_resource type="Resource" uid="uid://dp6tjebkyr6ml" path="res://scenes/items/seed_cables.tres" id="4_reuv0"]
 [ext_resource type="PackedScene" uid="uid://djfq4llaakx3l" path="res://scenes/item/item.tscn" id="5_f3sbe"]
-[ext_resource type="Resource" path="res://scenes/items/seed_sd.tres" id="5_oe5uy"]
+[ext_resource type="Resource" uid="uid://dh4ve8vtgwy7b" path="res://scenes/items/seed_sd.tres" id="5_oe5uy"]
 [ext_resource type="Resource" uid="uid://dwdejby24hoja" path="res://scenes/items/seed_pendrive.tres" id="6_reuv0"]
 [ext_resource type="PackedScene" uid="uid://cvdx0jmkaf3jt" path="res://assets/ui/HUD.tscn" id="8_0mi2f"]
+[ext_resource type="PackedScene" uid="uid://bpratturiilli" path="res://scenes/enemy/enemy.tscn" id="8_gbuw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioq07"]
 texture = ExtResource("1_gj2po")
@@ -81,9 +82,13 @@ position = Vector2(286, 85)
 item = ExtResource("6_reuv0")
 
 [node name="Player" parent="." instance=ExtResource("2_ioq07")]
-position = Vector2(292, 305)
+position = Vector2(140, 362)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_gbuw6")]
+position = Vector2(638, 381)
+target = NodePath("../Player")
 
 [node name="HUD" parent="." instance=ExtResource("8_0mi2f")]
