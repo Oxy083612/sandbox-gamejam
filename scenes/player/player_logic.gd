@@ -19,6 +19,7 @@ var player_alive = true
 
 var attack_in_progress = false
 
+var coins: int = 0
 
 enum DIRECTION {front, right, back, left}
 var dir = DIRECTION.front
@@ -181,11 +182,9 @@ func attack():
 		attack_in_progress = true
 		attack_cooldown.start()
 		if dir == DIRECTION.right:
-			sprite.flip_h = false
-			sprite.play("side_attack")
+			sprite.play("right_attack")
 		if dir == DIRECTION.left:
-			sprite.flip_h = true
-			sprite.play("side_attack")
+			sprite.play("left_attack")
 		if dir == DIRECTION.front:
 			sprite.play("up_attack")
 		if dir == DIRECTION.back:

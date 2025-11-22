@@ -8,7 +8,6 @@ class_name Plant
 
 const MAX_STAGE = 4
 var current_stage: int = -1
-var is_harvestable: bool = false
 var is_player_in_area: bool = false
 var playerBody: Player = null 
 
@@ -17,26 +16,26 @@ func _ready():
 	label.visible = false
 	sprite.play("empty")
 	sprite.pause()
-				
+
 func _process(_delta):
+	# obsługa labela
 	if is_player_in_area:
 		label_logic()
 
+
 func _update_growth():
-	print("CURRENT STAGE: " + str(current_stage))
-	
-	
 	if current_stage < MAX_STAGE and current_stage >= 0:
 		current_stage += 1
-		
+
 	sprite.frame = current_stage
 	sprite.pause()
-		
+
+
 func plant(name: String):
 	sprite.play(name)
 	sprite.stop()
 	current_stage = 0
-	sprite.frame = current_stage
+	sprite.frame = 0
 
 
 func harvest() -> InvItem:
@@ -48,34 +47,38 @@ func harvest() -> InvItem:
 			item = load("res://scenes/items/usb.tres")
 		"sd":
 			item = load("res://scenes/items/sd.tres")
-			
+
 	sprite.animation = "empty"
 	sprite.frame = 0
 	current_stage = -1
 	label.visible = false
 	return item
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.set_nearby_plant(self)
+		is_player_in_area = true
 		label_logic()
+
 
 func _on_area_2d_body_exited(body: Node) -> void:
 	if body is Player:
 		body.clear_nearby_plant(self)
+		is_player_in_area = false
 		label.visible = false
+
 
 func label_logic():
 	if can_plant():
 		label.visible = true
 		label.text = "PRESS `E` TO PLANT"
-		return
 	elif can_harvest():
 		label.visible = true
 		label.text = "PRESS `E` TO HARVEST"
-		return
 	else:
 		label.visible = false
+
 
 func plant_seed(name: String):
 	sprite.animation = name
@@ -84,8 +87,10 @@ func plant_seed(name: String):
 	sprite.frame = 0
 	label_logic()
 
+
 func can_plant() -> bool:
 	return current_stage == -1
+
 
 func can_harvest() -> bool:
 	return current_stage >= MAX_STAGE

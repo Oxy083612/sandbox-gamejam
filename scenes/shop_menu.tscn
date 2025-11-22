@@ -71,6 +71,7 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+[gd_scene load_steps=0 format=3 uid="uid://cv5ew33d7pvhc"]
 
 [node name="shop_menu" type="StaticBody2D"]
 script = ExtResource("1_76m3e")
