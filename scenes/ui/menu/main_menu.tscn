@@ -14,7 +14,7 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_size = 5
+shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ssjm"]
 bg_color = Color(0.23211971, 0.23211992, 0.23211977, 1)
@@ -54,18 +54,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_araup")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.49800003
-anchor_top = 0.528
-anchor_right = 0.49800003
-anchor_bottom = 0.528
-offset_left = -198.69604
-offset_top = -148.14401
-offset_right = 198.42896
-offset_bottom = 97.10599
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -43.0
+offset_right = 153.0
+offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 40
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -81,20 +81,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_eip10")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ssjm")
 text = "Start game 
 "
-
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.05414238, 0.05414208, 0.054142147, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_x3ykt")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5ssjm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eip10")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5ssjm")
-text = "Options"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -119,9 +105,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -313.0
-offset_top = -276.0
+offset_top = -225.0
 offset_right = 343.0
-offset_bottom = -176.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.008099999, 0.023429995, 0.03, 0.9843137)
@@ -133,5 +119,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
