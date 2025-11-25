@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://djfq4llaakx3l" path="res://scenes/item/item.tscn" id="5_f3sbe"]
 [ext_resource type="Resource" uid="uid://dh4ve8vtgwy7b" path="res://scenes/items/seed_sd.tres" id="5_oe5uy"]
 [ext_resource type="Resource" uid="uid://dwdejby24hoja" path="res://scenes/items/seed_pendrive.tres" id="6_reuv0"]
-[ext_resource type="PackedScene" uid="uid://cvdx0jmkaf3jt" path="res://assets/ui/HUD.tscn" id="8_0mi2f"]
+[ext_resource type="PackedScene" uid="uid://cvdx0jmkaf3jt" path="res://scenes/ui/HUD/HUD.tscn" id="8_0mi2f"]
 [ext_resource type="PackedScene" uid="uid://bpratturiilli" path="res://scenes/enemy/enemy.tscn" id="8_gbuw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioq07"]
@@ -57,12 +57,6 @@ tile_set = SubResource("TileSet_hne8t")
 
 [node name="decoration" type="TileMapLayer" parent="startowa_mapa"]
 
-[node name="Player" parent="startowa_mapa" instance=ExtResource("2_ioq07")]
-position = Vector2(189, 330)
-
-[node name="Camera2D" type="Camera2D" parent="startowa_mapa/Player"]
-position_smoothing_enabled = true
-
 [node name="Plant3" parent="." instance=ExtResource("4_q8ltl")]
 position = Vector2(576, 160)
 scale = Vector2(2, 2)
@@ -94,7 +88,7 @@ position = Vector2(170, 383)
 position_smoothing_enabled = true
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_gbuw6")]
-position = Vector2(320, 375)
+position = Vector2(550, 389)
 target = NodePath("../Player")
 
 [node name="HUD" parent="." instance=ExtResource("8_0mi2f")]

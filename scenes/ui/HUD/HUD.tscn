@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvdx0jmkaf3jt"]
 
-[ext_resource type="Texture2D" uid="uid://dxq2ttrx1r6wd" path="res://assets/monetka.png" id="1_hbkq3"]
-[ext_resource type="Texture2D" uid="uid://b5ssmeqxmwbd1" path="res://assets/heart.png" id="2_1f6ux"]
+[ext_resource type="Texture2D" uid="uid://f8l2yihhrotx" path="res://assets/HUD/heart.png" id="1_k1mma"]
 [ext_resource type="Texture2D" uid="uid://rha6db7mnom8" path="res://assets/ui/close_button.png" id="3_ehl52"]
-[ext_resource type="Script" uid="uid://tlufhpeclhfm" path="res://assets/ui/button.gd" id="4_vluym"]
+[ext_resource type="Script" uid="uid://tlufhpeclhfm" path="res://scenes/ui/HUD/button.gd" id="4_vluym"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5jnvu"]
+load_path = "res://.godot/imported/monetka.png-f1b910c42df47bc0adf2aaee7daa592e.ctex"
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -52,7 +54,7 @@ offset_bottom = 66.0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("1_hbkq3")
+texture = SubResource("CompressedTexture2D_5jnvu")
 stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -65,7 +67,7 @@ offset_bottom = 39.0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_1f6ux")
+texture = ExtResource("1_k1mma")
 
 [node name="Button" type="Button" parent="."]
 offset_right = 58.0

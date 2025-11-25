@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://cv5ew33d7pvhc"]
 
-[ext_resource type="Script" uid="uid://b41wpj34614un" path="res://scenes/shop_menu.gd" id="1_76m3e"]
+[ext_resource type="Script" path="res://scenes/shop_menu.gd" id="1_76m3e"]
 [ext_resource type="Texture2D" uid="uid://c7rduhgk4woh6" path="res://assets/shop/arrow.png" id="2_cql4u"]
 [ext_resource type="Texture2D" uid="uid://dsu2ijbg18kf" path="res://assets/items/ikonka_kable.png" id="3_xw4en"]
-[ext_resource type="Texture2D" uid="uid://dxq2ttrx1r6wd" path="res://assets/monetka.png" id="4_bq4yc"]
-[ext_resource type="Texture2D" uid="uid://whpc6jy7jkyv" path="res://assets/items/ikonka_karta_sd.png" id="4_xw4en"]
+[ext_resource type="Texture2D" uid="uid://cjobuhpgng67c" path="res://assets/HUD/monetka.png" id="4_bq4yc"]
+[ext_resource type="Texture2D" uid="uid://bupjcp6kq724i" path="res://assets/items/ikonka_usb.png" id="4_xw4en"]
 [ext_resource type="Texture2D" uid="uid://bupjcp6kq724i" path="res://assets/items/ikonka_usb.png" id="5_bq4yc"]
 [ext_resource type="Texture2D" uid="uid://cportoh512tuq" path="res://scenes/player/sword.png" id="6_bq4yc"]
 
