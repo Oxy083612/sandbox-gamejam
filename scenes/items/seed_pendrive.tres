@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_fkat8")
-name = "seed_sd"
+name = "seed_usb"
 texture = ExtResource("2_e0qt3")
 metadata/_custom_type_script = "uid://ce20qijrxy470"

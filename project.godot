@@ -13,7 +13,6 @@ config_version=5
 config/name="Test"
 run/main_scene="uid://bw3m2jk2jb1d7"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 

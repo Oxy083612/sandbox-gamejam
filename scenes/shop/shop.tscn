@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://denfsho0lhwb3"]
 
-[ext_resource type="Script" uid="uid://4jc8lky1mrh2" path="res://scenes/shop.gd" id="1_1l46r"]
+[ext_resource type="Script" uid="uid://4jc8lky1mrh2" path="res://scenes/shop/shop.gd" id="1_1l46r"]
 [ext_resource type="Texture2D" uid="uid://ccecc0nkj437v" path="res://assets/shop/shop.png" id="1_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://cen6e3jkm2p85" path="res://assets/shop/npc.png" id="2_1l46r"]
-[ext_resource type="PackedScene" uid="uid://cv5ew33d7pvhc" path="res://scenes/shop_menu.tscn" id="4_032fp"]
+[ext_resource type="PackedScene" uid="uid://bufpcfuos0cnc" path="res://scenes/ui/shop_menu/shop_menu.tscn" id="4_032fp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_032fp"]
 atlas = ExtResource("1_xfvoa")
@@ -36,36 +36,40 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_032fp"]
-size = Vector2(101, 104.5)
+size = Vector2(98, 104)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fc2m"]
-radius = 49.729267
+radius = 49.0
 
 [node name="shop" type="StaticBody2D"]
 script = ExtResource("1_1l46r")
 
 [node name="npc" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 2)
+position = Vector2(49, 56)
 scale = Vector2(2.125, 2.125)
 sprite_frames = SubResource("SpriteFrames_2fc2m")
 
 [node name="shop_art" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.000001, -13)
+position = Vector2(50, 48)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bdmwb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, -12.75)
+position = Vector2(49, 52)
 shape = SubResource("RectangleShape2D_032fp")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-14, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(11, 48)
+position = Vector2(63, 120)
 shape = SubResource("CircleShape2D_2fc2m")
 
-[node name="shop_menu" parent="." instance=ExtResource("4_032fp")]
-position = Vector2(-47, -149)
+[node name="shopWindow" parent="." instance=ExtResource("4_032fp")]
+offset_left = -51.0
+offset_top = -94.0
+offset_right = -11.0
+offset_bottom = -54.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

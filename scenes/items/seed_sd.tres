@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_nbdur")
-name = "seed_usb"
+name = "seed_sd"
 texture = ExtResource("2_3pi2s")
 metadata/_custom_type_script = "uid://ce20qijrxy470"

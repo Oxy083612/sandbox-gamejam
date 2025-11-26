@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://jpignsm2d5t3" path="res://assets/tilesets/tile.png" id="1_xt2bo"]
 [ext_resource type="PackedScene" uid="uid://d3yjtxv0lq318" path="res://scenes/player/player.tscn" id="2_a1yx0"]
-[ext_resource type="PackedScene" uid="uid://denfsho0lhwb3" path="res://scenes/shop.tscn" id="3_b3fww"]
-[ext_resource type="PackedScene" uid="uid://dkwlfunj3smr3" path="res://scenes/portal.tscn" id="4_st4y5"]
+[ext_resource type="PackedScene" uid="uid://denfsho0lhwb3" path="res://scenes/shop/shop.tscn" id="3_b3fww"]
+[ext_resource type="PackedScene" uid="uid://dkwlfunj3smr3" path="res://scenes/portal/portal.tscn" id="4_st4y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1yx0"]
 texture = ExtResource("1_xt2bo")
@@ -54,22 +54,8 @@ tile_set = SubResource("TileSet_cevwi")
 [node name="Player" parent="shop" instance=ExtResource("2_a1yx0")]
 position = Vector2(741, 1205)
 
-[node name="Camera2D" type="Camera2D" parent="shop/Player"]
-position_smoothing_enabled = true
-
 [node name="shop" parent="shop" instance=ExtResource("3_b3fww")]
-position = Vector2(1617, 1125)
+position = Vector2(887, 1120)
 
 [node name="Portal" parent="." instance=ExtResource("4_st4y5")]
-position = Vector2(896, 1084)
-
-[node name="AnimatedSprite2D" parent="Portal" index="0"]
-position = Vector2(603, 348)
-
-[node name="CollisionShape2D" parent="Portal" index="1"]
-position = Vector2(601, 341)
-
-[node name="DestinationPoint" parent="Portal" index="2"]
-position = Vector2(-260, 511)
-
-[editable path="Portal"]
+position = Vector2(943, 1398)

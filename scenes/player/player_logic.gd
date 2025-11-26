@@ -20,7 +20,7 @@ var player_alive = true
 
 var attack_in_progress = false
 
-var coins: int = 0
+var coins: int = 100
 
 enum DIRECTION {front, right, back, left}
 var dir = DIRECTION.front

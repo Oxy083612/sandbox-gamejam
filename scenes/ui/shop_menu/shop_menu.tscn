@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bufpcfuos0cnc"]
+
+[ext_resource type="Texture2D" uid="uid://bhbkluw0bwp8k" path="res://assets/ui/inventory.png" id="1_10fdf"]
+[ext_resource type="Script" uid="uid://b41wpj34614un" path="res://scenes/ui/shop_menu/shop_menu.gd" id="1_76m3e"]
+[ext_resource type="Texture2D" uid="uid://7k37rf6g35fo" path="res://assets/ui/kafelek_inventory.png" id="2_smeop"]
+[ext_resource type="Texture2D" uid="uid://dsu2ijbg18kf" path="res://assets/items/ikonka_kable.png" id="3_xw4en"]
+[ext_resource type="Texture2D" uid="uid://b6vnn0bxdooy4" path="res://assets/shop/arrowRight.png" id="4_bv2yl"]
+[ext_resource type="Texture2D" uid="uid://i1tul0ss0im4" path="res://assets/shop/arrowLeft.png" id="5_12kab"]
+
+[node name="shopWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_76m3e")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 194.0
+offset_bottom = 76.0
+texture = ExtResource("1_10fdf")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="panelLeft" type="CenterContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="item" type="Panel" parent="NinePatchRect/HBoxContainer/panelLeft"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="itemName" type="Label" parent="NinePatchRect/HBoxContainer/panelLeft/item"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -33.0
+offset_right = 45.0
+offset_bottom = -10.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/HBoxContainer/panelLeft/item"]
+position = Vector2(0, 6)
+texture = ExtResource("2_smeop")
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/HBoxContainer/panelLeft/item"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 26.0
+
+[node name="item" type="Sprite2D" parent="NinePatchRect/HBoxContainer/panelLeft/item/CenterContainer"]
+position = Vector2(20, 20)
+texture = ExtResource("3_xw4en")
+
+[node name="panelRight" type="CenterContainer" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="NinePatchRect/HBoxContainer/panelRight"]
+layout_mode = 2
+
+[node name="buy" type="Button" parent="NinePatchRect/HBoxContainer/panelRight/Panel"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 41.0
+scale = Vector2(0.75, 0.75)
+text = "BUY"
+
+[node name="arrowRight" type="Button" parent="NinePatchRect/HBoxContainer/panelRight/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 43.0
+scale = Vector2(0.75, 0.75)
+icon = ExtResource("4_bv2yl")
+flat = true
+
+[node name="arrowLeft" type="Button" parent="NinePatchRect/HBoxContainer/panelRight/Panel"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = 43.0
+scale = Vector2(0.75, 0.75)
+icon = ExtResource("5_12kab")
+flat = true
+
+[node name="price" type="Label" parent="NinePatchRect/HBoxContainer/panelRight/Panel"]
+layout_mode = 0
+offset_left = -46.0
+offset_top = -33.0
+offset_right = -3.0
+offset_bottom = -10.0
+text = "Price:"
+
+[node name="com" type="Label" parent="."]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 13.0
+offset_right = 292.0
+offset_bottom = 62.0
+text = "Insufficient
+money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="comCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/panelRight/Panel/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/panelRight/Panel/arrowRight" to="." method="_on_arrow_right_pressed"]
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/panelRight/Panel/arrowLeft" to="." method="_on_arrow_left_pressed"]
+[connection signal="timeout" from="comCooldown" to="." method="_on_com_cooldown_timeout"]

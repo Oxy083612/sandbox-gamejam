@@ -367,6 +367,7 @@ position = Vector2(0, 21.25)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Inventory_UI" parent="." instance=ExtResource("3_p47bc")]
+z_index = 90
 offset_left = -79.0
 offset_top = -169.0
 offset_right = 64.0
@@ -383,6 +384,9 @@ wait_time = 0.5
 
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
