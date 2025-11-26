@@ -7,11 +7,17 @@ const SPEED = 150.0
 @onready var area_2d: Area2D = $Area2D
 @onready var damage_intake: Timer = $damage_intake
 @onready var attack_cooldown: Timer = $attack_cooldown
+@onready var hud: HUD = $Hud
+
 
 @onready var inventoryUI: Control = $Inventory_UI
 @export var inventory: Inventory
 
 var nearby_plant: Plant = null
+
+var player_current_health: int = 100
+var max_player_health: int = 100
+var min_player_health: int = 0
 
 var enemy_in_attack_range = false
 var damage_intake_cooldown = true
@@ -132,17 +138,12 @@ func _on_inventory_selected_for_plant(item_name: String):
 func collect(item: InvItem):
 	inventory.insert(item)
 
-#	Player health implementation
-var player_current_health: int = 100
-var max_player_health: int = 100
-var min_player_health: int = 0
-
 func add_health(health_amount: int) -> void:
 	if player_current_health + health_amount > max_player_health:
 		player_current_health = max_player_health
 	else:
 		player_current_health += health_amount
-	print("Current player health: ", player_current_health)
+	hud.change_hp(player_current_health)
 		
 #	Function returns state of player using bool value
 func decrease_health(healthAmount: int):
@@ -151,6 +152,7 @@ func decrease_health(healthAmount: int):
 		player_alive = false
 	else:
 		player_current_health -= healthAmount
+	hud.change_hp(player_current_health)
 	
 
 

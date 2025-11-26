@@ -8,9 +8,9 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		shop_window.visible = true
-		shop_window.player = body
+		shop_window.set_player(body)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		shop_window.visible = false
-		shop_window.player = null
+		shop_window.set_player(null)
