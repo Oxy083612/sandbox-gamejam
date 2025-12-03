@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://4qeybh5uyt35"]
 
-[ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/item/invItem.gd" id="1_uvox4"]
+[ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/invItem.gd" id="1_uvox4"]
 [ext_resource type="Texture2D" uid="uid://db6u6833of8ue" path="res://assets/plants/roslina_puste.png" id="2_lsked"]
 
 [resource]

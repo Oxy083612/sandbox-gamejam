@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://hw6u6kuqr6m8"]
 
-[ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/item/invItem.gd" id="1_7e4fd"]
+[ext_resource type="Script" uid="uid://ce20qijrxy470" path="res://scenes/invItem.gd" id="1_7e4fd"]
 [ext_resource type="Texture2D" uid="uid://whpc6jy7jkyv" path="res://assets/items/ikonka_karta_sd.png" id="2_3til4"]
 
 [resource]
